@@ -176,8 +176,8 @@
     var peg$FAILED = {};
     var peg$source = options.grammarSource;
 
-    var peg$startRuleFunctions = { games: peg$parsegames };
-    var peg$startRuleFunction = peg$parsegames;
+    var peg$startRuleFunctions = { pgn: peg$parsepgn, tags: peg$parsetags, game: peg$parsegame, games: peg$parsegames };
+    var peg$startRuleFunction = peg$parsepgn;
 
     var peg$c0 = "Event";
     var peg$c1 = "event";
