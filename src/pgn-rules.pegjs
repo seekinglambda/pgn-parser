@@ -288,6 +288,8 @@ innerComment
       { var ret = {}; ret[cc]= cv; return merge([ret].concat(tail[0])) }
   / ws bl "%eval" wsp ev:stringNoQuot ws br ws tail:(ic:innerComment { return ic })*
       { var ret = {};  ret["eval"]= parseFloat(ev); return merge([ret].concat(tail[0])) }
+  / ws bl "%" ac:stringNoQuot br ws tail:(ic:innerComment { return ic })*
+      ( var ret = {}; ret[ac] = ""; return merge([ret].concat(tail[0)) }
   / ws bl "%" ac:stringNoQuot wsp val:nbr+ br ws tail:(ic:innerComment { return ic })*
       { var ret = {}; ret[ac]= val.join(""); return merge([ret].concat(tail[0])) }
   / c:nonCommand+ tail:(ws ic:innerComment { return ic })*
